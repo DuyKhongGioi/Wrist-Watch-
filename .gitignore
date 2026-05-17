@@ -1,0 +1,32 @@
+# ==========================================
+# Vivado Git Ignore File
+# ==========================================
+
+# 1. Thư mục build, cache và sinh tự động
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+.Xil/
+
+# 2. Các file Log và Journal của Vivado
+vivado.jou
+vivado.log
+webtalk.jou
+webtalk.log
+webtalk_pn.xml
+usage_statistics_webtalk.*
+
+# 3. Các file tạm thời và backup
+*.backup.*
+*.str
+*.zip
+*isave.tcl
+.crashReporter/
+*.tmp/
+*~
+
+# 4. OS generated files (Tùy chọn cho Windows/Mac)
+.DS_Store
+Thumbs.db
