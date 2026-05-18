@@ -52,7 +52,7 @@ module time_mode_ctrl(
                      SET_HOURS = 2'd2,
                      SET_MINS  = 2'd3;
                      
-    always @ (posedge clk) begin
+    always @ (posedge clk or posedge reset) begin
         if (reset) begin
             state_reg <= IDLE;
         end else begin

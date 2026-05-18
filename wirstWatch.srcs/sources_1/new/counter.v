@@ -21,7 +21,8 @@
 
 
 module counter #(
-    parameter CNT_WIDTH = 1)
+    parameter CNT_WIDTH = 1,
+    parameter INIT_VAL  = 0)
     (
     input wire clk,
     input wire reset,
@@ -32,9 +33,9 @@ module counter #(
     );
     
     reg [CNT_WIDTH-1:0] cnt_reg;
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
-            cnt_reg <= {CNT_WIDTH{1'b0}};
+            cnt_reg <= INIT_VAL;
         end else if (load) begin
             cnt_reg <= in_val;
         end else if (inc && !dec) begin

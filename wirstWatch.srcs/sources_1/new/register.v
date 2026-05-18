@@ -21,7 +21,8 @@
 
 
 module register #(
-    parameter DATA_WIDTH = 1)
+    parameter DATA_WIDTH = 1,
+    parameter INIT_VAL   = 0)
     (
         input wire clk,
         input wire reset,
@@ -32,9 +33,9 @@ module register #(
     
     reg [DATA_WIDTH - 1 : 0] dout_int;
     
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
-            dout_int <= {DATA_WIDTH{1'b0}};
+            dout_int <= INIT_VAL;
         end else if (en) begin
             dout_int <= din;
         end

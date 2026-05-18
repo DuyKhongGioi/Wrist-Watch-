@@ -26,7 +26,8 @@ module time_mode_dtp(
     
     // --- Các bộ đếm (Counters) ---
     counter #(
-        .CNT_WIDTH(7)
+        .CNT_WIDTH(7),
+        .INIT_VAL(7'd0)
     ) hundred_counter (
         .clk(clk),
         .reset(reset),
@@ -38,7 +39,8 @@ module time_mode_dtp(
     );
     
     counter #(
-        .CNT_WIDTH(6)
+        .CNT_WIDTH(6),
+        .INIT_VAL(6'd0)
     ) second_counter (
         .clk(clk),
         .reset(reset),
@@ -50,7 +52,8 @@ module time_mode_dtp(
     );
     
     counter #(
-        .CNT_WIDTH(6)
+        .CNT_WIDTH(6),
+        .INIT_VAL(6'd0)
     ) minute_counter (
         .clk(clk),
         .reset(reset),
@@ -62,7 +65,8 @@ module time_mode_dtp(
     );
     
     counter #(
-        .CNT_WIDTH(5)
+        .CNT_WIDTH(5),
+        .INIT_VAL(5'd12)
     ) hour_counter (
         .clk(clk),
         .reset(reset),
@@ -75,7 +79,8 @@ module time_mode_dtp(
     
     // --- Thanh ghi AM/PM ---
     register #(
-        .DATA_WIDTH(7)
+        .DATA_WIDTH(7),
+        .INIT_VAL(7'b0001000)
     ) am_pm_inst (
         .clk(clk),
         .reset(reset),
